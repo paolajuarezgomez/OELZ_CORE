@@ -44,7 +44,7 @@ jobs:
          echo "linea 3"
          ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/terraform-oelz-templates-examples
           echo "linea 4"
-         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oci-credentials.tfvars.json
+         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/terraform-oelz-templates-examples/patterns/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO
 
         
     - name: Set up Terraform

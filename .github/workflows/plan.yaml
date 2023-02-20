@@ -55,10 +55,10 @@ jobs:
     - name: Terraform Plan
       id: plan
       run: terraform plan -no-color \
-       -var-file  ${{ github.workspace }}/oci-credentials.tfvars.json \
-       -var-file  ${{ github.workspace }}/oelz_shared_security.auto.tfvars.json \
-       -var-file  ${{ github.workspace }}/oelz_shared_network.auto.tfvars.json \
-       -state  ${{ github.workspace }}/terraform.tfstate \
+       -var-file  ${{ TF_OE }}/oci-credentials.tfvars.json \
+       -var-file  ${{ TF_OE }}/oelz_shared_security.auto.tfvars.json \
+       -var-file  ${{ TF_OE }}/oelz_shared_network.auto.tfvars.json \
+       -state  ${{ TF_OE }}/terraform.tfstate \
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'

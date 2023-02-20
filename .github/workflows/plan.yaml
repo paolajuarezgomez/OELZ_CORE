@@ -49,9 +49,9 @@ jobs:
       run: | 
         cat ~/.ssh/config
     
-   #- name: Terraform Fmt
-     # id: fmt
-     # run: terraform fmt
+    - name: Terraform Fmt
+      id: fmt
+      run: terraform fmt
       
     - name: Terraform Init
       id: init

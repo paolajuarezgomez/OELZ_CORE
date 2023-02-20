@@ -38,6 +38,7 @@ jobs:
     - name: List files in the repository
       run: |
          ls ${{ github.workspace }}
+         ls ${{ github.workspace }}/LZ_OE
         
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1.3.2

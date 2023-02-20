@@ -26,7 +26,6 @@ jobs:
     #Checkout the repository to the GitHub Actions runner
     - name: Check out repository code
       uses: actions/checkout@v3
-   #uses: actions/checkout@v2
             
     - uses: webfactory/ssh-agent@v0.7.0
       with:
@@ -37,22 +36,13 @@ jobs:
     - name: List files in the repository
       run: |
          ls ${{ github.workspace }}
-         
-    - name: Collect Git and SSH config files i
-      run: |
-          #mkdir root-config
-          #cp -r ~/.gitconfig  ~/.ssh root-config/
         
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1.3.2
-
-    - name: check config
-      run: | 
-        cat ~/.ssh/config
     
-   #- name: Terraform Fmt
-     # id: fmt
-     # run: terraform fmt
+    - name: Terraform Fmt
+      id: fmt
+      run: terraform fmt
       
     - name: Terraform Init
       id: init
@@ -64,7 +54,11 @@ jobs:
       
     - name: Terraform Plan
       id: plan
-      run: terraform plan -no-color
+      run: terraform plan -no-color \
+       -var-file  ${{ github.workspace }}/oci-credentials.tfvars.json \
+       -var-file  ${{ github.workspace }}/oelz_shared_security.auto.tfvars.json \
+       -var-file  ${{ github.workspace }}/oelz_shared_network.auto.tfvars.json \
+       -state  ${{ github.workspace }}/terraform.tfstate \
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'

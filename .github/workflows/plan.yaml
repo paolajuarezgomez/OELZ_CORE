@@ -37,8 +37,15 @@ jobs:
     - run: echo  "The workflow is now ready to test your code on the runner."
     - name: List files in the repository
       run: |
+         echo "linea 1"
          ls ${{ github.workspace }}
+         echo "linea 2"
          ls ${{ github.workspace }}/LZ_OE
+         echo "linea 3"
+         ls /home/runner/work/OELZ_CORE/OELZ_CORE/LZ_OE/terraform-oelz-templates-examples
+          echo "linea 4"
+         ls /home/runner/work/OELZ_CORE/OELZ_CORE/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oci-credentials.tfvars.json
+
         
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1.3.2

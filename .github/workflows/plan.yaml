@@ -24,22 +24,31 @@ jobs:
     
     #Checkout the repository to the GitHub Actions runner
     - name: Check out repository code
-      uses: actions/checkout@v2
-    
+      uses: actions/checkout@v3
+   #uses: actions/checkout@v2
+            
+    - uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  
     - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
     - run: echo  "The workflow is now ready to test your code on the runner."
     - name: List files in the repository
       run: |
          ls ${{ github.workspace }}
-
-      # ssh config
-    - name: Configure github clone
-      run: | 
-        cat   " ~/.ssh/config"  
+         
+    - name: Collect Git and SSH config files i
+      run: |
+          #mkdir root-config
+          #cp -r ~/.gitconfig  ~/.ssh root-config/
         
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1.3.2
-  
+
+    - name: check config
+      run: | 
+        cat ~/.ssh/config
+    
     - name: Terraform Fmt
       id: fmt
       run: terraform fmt
@@ -47,4 +56,5 @@ jobs:
     - name: Terraform Init
       id: init
       run: terraform init
+      
       

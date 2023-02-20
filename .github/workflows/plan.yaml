@@ -33,7 +33,7 @@ jobs:
          ls ${{ github.workspace }}
 
       # ssh config
-    - name: Configure S3 backend
+    - name: Configure github clone
       run: | 
         echo  ".ssh/config"  
         

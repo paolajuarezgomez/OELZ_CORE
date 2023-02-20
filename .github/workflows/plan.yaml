@@ -57,11 +57,7 @@ jobs:
       
     - name: Terraform Plan
       id: plan
-      run: terraform plan -no-color \
-       -var-file  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oci-credentials.tfvars.json \
-       -var-file  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oelz_shared_security.auto.tfvars.json \
-       -var-file  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oelz_shared_network.auto.tfvars.json \
-       -state  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/terraform.tfstate \
+      run: terraform plan -no-color -var-file  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oci-credentials.tfvars.json -var-file  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oelz_shared_security.auto.tfvars.json -var-file  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/oelz_shared_network.auto.tfvars.json -state  ${{ github.workspace }}/LZ_OE/terraform-oelz-templates-examples/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ/terraform.tfstate 
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'

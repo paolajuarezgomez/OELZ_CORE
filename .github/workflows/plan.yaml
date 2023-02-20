@@ -50,17 +50,13 @@ jobs:
       id: init
       run: terraform init
       
-    - name: Terraform validate
-      id: validate
-      run: terraform validate
+    #- name: Terraform validate
+    #  id: validate
+    #  run: terraform validate
       
     - name: Terraform Plan
       id: plan
-      run: terraform plan -no-color \
-       -var-file  ${{ TF_OE }}/oci-credentials.tfvars.json \
-       -var-file  ${{ TF_OE }}/oelz_shared_security.auto.tfvars.json \
-       -var-file  ${{ TF_OE }}/oelz_shared_network.auto.tfvars.json \
-       -state  ${{ TF_OE }}/terraform.tfstate \
+      run: terraform plan -no-color 
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'

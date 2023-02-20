@@ -37,14 +37,10 @@ jobs:
     - run: echo  "The workflow is now ready to test your code on the runner."
     - name: List files in the repository
       run: |
-         echo "linea 1"
-         ls ${{ github.workspace }}
-         echo "linea 2"
-         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main
          echo "linea 3"
-         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/patterns/OELZ
+         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/
           echo "linea 4"
-         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO
+         ls ${{ github.workspace }}/LZ_OE/terraform-oci-lzf-templates-main/patterns/OELZ/examples/lz_central_operations_repo_example/LZ_OPS_CENTRAL_REPO/SHARED-PJUAREZ
 
         
     - name: Set up Terraform
